@@ -3,7 +3,7 @@
  * It receives Analog Voltage from the sensor on A0 and 
    then takes the average for smoothing readings.
  * The average of 100 values in 5 seconds and is then converted to integer as floating analogread makes no sense.
- * A buzzer was added and the arduino with the sensor and a LIPO was packed and tested >
+ * A RGB LED was added to an arduino UNO with the sensor to indicate level of pollution >
  
  * Copyright (C) <2016>  <Chaitanya Baweja> <http://www.gnu.org/licenses/>
     
@@ -12,16 +12,21 @@
     by the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 */
+#define Green 10
+#define Red 9
+#define Blue 8
 int Count=1;
-unsigned long time1, time2;
 float Average = 0.0;
 int integerAverage;
 void setup() {
   Serial.begin(9600);
   Serial.println("Test run MQ135");  //set BaudRate to 9600
-  pinMode(8,OUTPUT);
-  pinMode(9, OUTPUT);
-  
+  pinMode(Green, OUTPUT);
+  pinMode(Red, OUTPUT);
+  pinMode(Blue, OUTPUT);
+  digitalWrite(Green, HIGH);
+  digitalWrite(Red, LOW);
+  digitalWrite(Blue, LOW);
 }
 void loop() {
   int AnalogVoltage=analogRead(A0);
@@ -35,20 +40,24 @@ void loop() {
   { Serial.print("Analog Voltage Mean Output:");
     integerAverage=(int)Average;                //type casting to integer
     Serial.println(integerAverage);
-    if(Average>280)
-    { time1 = millis();
-      digitalWrite(9, LOW);
-      digitalWrite(8, HIGH);
+    if(Average<250)
+    {  digitalWrite(Green, HIGH);
+       digitalWrite(Red, LOW);
+       digitalWrite(Blue, LOW);}
+    else if(Average<300)
+    {  digitalWrite(Green, LOW);
+       digitalWrite(Red, LOW);
+       digitalWrite(Blue, HIGH);
+    }
+    else
+    {  digitalWrite(Green, LOW);
+       digitalWrite(Red, HIGH);
+       digitalWrite(Blue, LOW);
     }
     Average=(AnalogVoltage/(100.0));      //average set to initial reading
     Count=1;
   }
-  time2 = millis();
-  if(time2-time1>2000)
-  { digitalWrite(9, LOW);
-    digitalWrite(8, LOW);
-  }
- 
+   
   Count++;
   delay(50);  //delay reading by 50ms
 }
