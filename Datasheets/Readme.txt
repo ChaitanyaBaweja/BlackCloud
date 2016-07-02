@@ -1,0 +1,7 @@
+All sensors that were found suitable:
+1. CO2: MQ-135, MG811, MHZ14
+2. CO: MQ-7, MiCS-5525, TGS-2442, MiCS-6814
+3. O3: MQ-131, MiCS-2610, MiCS-2614
+4. PM2.5 & PM10: SamYoung DSM501, Shinyei PPD42NS, Sharp GP2Y1010AU
+5. NO2: MiCS-2710, MiCS-2714, MiCS-6814
+6. SO2: MQ-136
