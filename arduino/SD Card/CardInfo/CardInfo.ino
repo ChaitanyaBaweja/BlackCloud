@@ -6,7 +6,7 @@
  Very useful for testing a card when you're not sure whether its working or not.
   The circuit:
  * SD card attached to SPI bus as follows:
- ** UNO:  MOSI - pin 11, MISO - pin 12, CLK - pin 13, CS - pin 4 (CS pin can be changed)
+ ** UNO:  MOSI - pin 11, MISO - pin 12, CLK - pin 13, CS - pin 10
   and pin #10 (SS) must be an output
  */
  /* Copyright (C) <2016>  <Chaitanya Baweja> <http://www.gnu.org/licenses/>
