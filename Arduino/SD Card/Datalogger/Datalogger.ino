@@ -1,7 +1,7 @@
 /*
  This program reads data from two MQ135 sensors, one module
- and one our own built module and then stores the average 
- 100 readings over 5 seconds in an SD Card.
+ and one our own built module and then stores the average of 
+ 100 readings over 5 seconds in a SD Card.
  Also a timestamp is added using the delay fuction
  This will be used for evaluation ad testing purposes	
  The circuit:
