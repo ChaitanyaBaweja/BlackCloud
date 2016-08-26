@@ -3,7 +3,7 @@
    - The HC-05 LED Blink SLOWLY: 2 seconds ON/OFF 
    Connections:  GND to HC-05 GND, Pin 2 to HC-05 TXD, 
    Pin 3 to HC-05 RXD, Pin 4 to HC-05 KEY, 
-   Pin 5V to HC-05 VCC for power control
+   Pin 5 to HC-05 VCC for power control
 */
 /* Copyright (C) <2016>  <Chaitanya Baweja> <http://www.gnu.org/licenses/>
     
